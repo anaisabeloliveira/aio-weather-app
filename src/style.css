@@ -1,0 +1,112 @@
+h4 {
+  font-size: 18px;
+}
+
+img {
+  max-width: 45px;
+  margin: 0 -5px;
+}
+
+.container {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.search-bar {
+  margin: 10px auto;
+}
+
+.btn-light {
+  margin: 0 10px;
+}
+
+.weather-now {
+  margin: 0 40px;
+  border: 0px;
+}
+
+.now {
+  margin: 20px auto -60px;
+}
+
+.col-6 .temperature-now-c {
+  text-align: center;
+  margin: -10px;
+}
+
+.tempUnit {
+  padding: 0;
+}
+
+.temperature-now-c {
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.c-or-f {
+  display: inline;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.col .emoji-now {
+  text-align: center;
+}
+
+.weather-image-now {
+  display: block;
+  margin: 0 auto;
+  font-size: 35px;
+}
+.date-now {
+  font-size: 12px;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.city-now {
+  position: relative;
+  left: -20px;
+  padding: 20px;
+}
+
+.temperature-now {
+  position: relative;
+  right: -20px;
+  padding: 20px;
+  border: #fff;
+}
+
+.next5days {
+  margin: 0 auto;
+  text-align: center;
+}
+.next5days-header {
+  position: relative;
+  left: 10px;
+  margin: 10px 0px -10px;
+}
+
+.weather-5days {
+  margin: 10px;
+}
+
+.next5days .col {
+  padding: 5px;
+  margin: 20px auto -40px;
+}
+
+.row .now {
+  padding: auto;
+}
+
+.card-body {
+  height: 130px;
+}
+
+#cityInput {
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 5px;
+}

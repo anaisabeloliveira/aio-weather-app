@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card app bg-info bg-gradient bg-opacity-25 mb-3">
+        <form class="search-bar" id="search-engine">
+          <input
+            type="button"
+            title="Current Location"
+            class="btn btn-light"
+            value="🧭"
+            id="gps"
+          />
+          <input
+            type="text"
+            autofocus
+            autocomplete="off"
+            placeholder="Search by City..."
+            id="searchCity"
+          />
+          <input
+            type="submit"
+            title="Search"
+            class="btn btn-light"
+            value="🔎"
+          />
+        </form>
+        <form></form>
+
+        <div class="weather-now">
+          <div class="row now">
+            <div class="col-6 city-now">
+              <div
+                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
+                style="max-width: 18rem"
+              >
+                <div class="card-body">
+                  <h2 id="cityInput"></h2>
+                  <p class="date-now" id="date-now">10/01/2022 20:00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 temperature-now">
+              <div
+                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
+                style="max-width: 18rem"
+              >
+                <div class="card-body">
+                  <h4 id="description">NOW</h4>
+                  <div class="row">
+                    <div class="col-3 weather-image-now">
+                      <span class="weather-image-now">
+                        <img src="src/images/sunny.png" alt="" />
+                      </span>
+                    </div>
+                    <div class="col-6 temperature-now-c">
+                      <span class="temperature-now-c" id="temp-now"></span>
+                    </div>
+                    <div class="col-3 tempUnit">
+                      <span class="c-or-f">
+                        <a href="#" id="celsius">ºC</a>
+                        <a href="#" id="fahrenheit">ºF</a>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-5days">
+          <h5 class="next5days-header">NEXT 5 DAYS</h5>
+          <div class="row next5days">
+            <div class="col">
+              <div
+                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
+                style="max-width: 18rem"
+              >
+                <h6>MON.</h6>
+                <h6 class="emoji">
+                  <img src="src/images/sunny.png" alt="" />
+                </h6>
+                <h6>23ºC</h6>
+                <p>73ºF</p>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
+                style="max-width: 18rem"
+              >
+                <h6>MON.</h6>
+                <h6 class="emoji">
+                  <img src="src/images/partly_cloudy.png" alt="" />
+                </h6>
+                <h6>23ºC</h6>
+                <p>73ºF</p>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
+                style="max-width: 18rem"
+              >
+                <h6>MON.</h6>
+                <h6 class="emoji"><img src="src/images/sunny.png" alt="" /></h6>
+                <h6>23ºC</h6>
+                <p>73ºF</p>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
+                style="max-width: 18rem"
+              >
+                <h6>MON.</h6>
+                <h6 class="emoji">
+                  <img src="src/images/rain_light.png" alt="" />
+                </h6>
+                <h6>23ºC</h6>
+                <p>73ºF</p>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
+                style="max-width: 18rem"
+              >
+                <h6>MON.</h6>
+                <h6 class="emoji"><img src="src/images/sunny.png" alt="" /></h6>
+                <h6>23ºC</h6>
+                <p>73ºF</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
