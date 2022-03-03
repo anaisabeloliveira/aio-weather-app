@@ -4,61 +4,65 @@ h4 {
 
 img {
   max-width: 45px;
-  margin: 0 -5px;
+  margin: 0;
 }
 
-.container {
+li {
+  list-style: none;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin-top: 10px;
+  padding: 0;
+  position: left;
+}
+
+.weather-app {
   padding: 20px;
-  margin: 0 auto;
+  margin: 20 auto 0;
   max-width: 600px;
+  border: 3px inset #668ba4;
+  border-radius: 40px;
 }
 
 .search-bar {
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
-.btn-light {
+.btn-secondary {
   margin: 0 10px;
 }
 
 .weather-now {
   margin: 0 40px;
-  border: 0px;
+  background-color: #668ba4;
+  border: 1px inset #668ba4;
+  border-radius: 20px;
 }
 
-.now {
-  margin: 20px auto -60px;
-}
-
-.col-6 .temperature-now-c {
-  text-align: center;
-  margin: -10px;
-}
-
-.tempUnit {
-  padding: 0;
+.weather-image-now {
+  margin: 10px 5px 30px 10px;
 }
 
 .temperature-now-c {
   font-size: 45px;
   font-weight: 600;
+  text-align: center;
+  margin: 0;
 }
 
 .c-or-f {
+  position: relative;
+  text-decoration: none;
   display: inline;
-  font-size: 17px;
-  font-weight: 300;
+  top: -20px;
 }
 
-.col .emoji-now {
-  text-align: center;
-}
-
-.weather-image-now {
-  display: block;
-  margin: 0 auto;
-  font-size: 35px;
-}
 .date-now {
   font-size: 12px;
   font-size: 16px;
@@ -66,22 +70,19 @@ img {
 }
 
 .city-now {
-  position: relative;
-  left: -20px;
-  padding: 20px;
+  padding: 0;
+  margin: 10px;
 }
 
 .temperature-now {
-  position: relative;
-  right: -20px;
-  padding: 20px;
-  border: #fff;
+  display: inline;
 }
 
 .next5days {
   margin: 0 auto;
   text-align: center;
 }
+
 .next5days-header {
   position: relative;
   left: 10px;
@@ -95,14 +96,6 @@ img {
 .next5days .col {
   padding: 5px;
   margin: 20px auto -40px;
-}
-
-.row .now {
-  padding: auto;
-}
-
-.card-body {
-  height: 130px;
 }
 
 #cityInput {

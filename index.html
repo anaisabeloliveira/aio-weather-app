@@ -19,15 +19,8 @@
   </head>
   <body>
     <div class="container">
-      <div class="card app bg-info bg-gradient bg-opacity-25 mb-3">
+      <div class="weather-app card app mb-3">
         <form class="search-bar" id="search-engine">
-          <input
-            type="button"
-            title="Current Location"
-            class="btn btn-light"
-            value="🧭"
-            id="gps"
-          />
           <input
             type="text"
             autofocus
@@ -38,51 +31,47 @@
           <input
             type="submit"
             title="Search"
-            class="btn btn-light"
+            class="btn btn-secondary search-btn"
             value="🔎"
           />
+          <input
+            type="button"
+            title="Current Location"
+            class="btn btn-secondary"
+            value="🧭"
+            id="gps"
+          />
         </form>
-        <form></form>
 
-        <div class="weather-now">
+        <div class="weather-now card app mb-3">
+          <ul class="city-now">
+            <li id="cityInput"></li>
+            <li class="date-now" id="date-now">10/01/2022 20:00</li>
+            <li id="description"></li>
+          </ul>
+
           <div class="row now">
-            <div class="col-6 city-now">
-              <div
-                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
-                style="max-width: 18rem"
-              >
-                <div class="card-body">
-                  <h2 id="cityInput"></h2>
-                  <p class="date-now" id="date-now">10/01/2022 20:00</p>
+            <div class="col-6">
+              <div class="clearfix weather-temperature">
+                <img
+                  src="src/images/sunny.png"
+                  alt=""
+                  class="float-left weather-image-now"
+                />
+                <div class="temperature-now">
+                  <span class="temperature-now-c" id="temp-now">20</span>
+                  <span class="tempUnit">
+                    <a href="#" class="c-or-f" id="celsius">ºC</a>
+                    <a href="#" class="c-or-f" id="fahrenheit">ºF</a>
+                  </span>
                 </div>
               </div>
             </div>
-
-            <div class="col-6 temperature-now">
-              <div
-                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
-                style="max-width: 18rem"
-              >
-                <div class="card-body">
-                  <h4 id="description">NOW</h4>
-                  <div class="row">
-                    <div class="col-3 weather-image-now">
-                      <span class="weather-image-now">
-                        <img src="src/images/sunny.png" alt="" />
-                      </span>
-                    </div>
-                    <div class="col-6 temperature-now-c">
-                      <span class="temperature-now-c" id="temp-now"></span>
-                    </div>
-                    <div class="col-3 tempUnit">
-                      <span class="c-or-f">
-                        <a href="#" id="celsius">ºC</a>
-                        <a href="#" id="fahrenheit">ºF</a>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> m/h</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -122,7 +111,9 @@
                 style="max-width: 18rem"
               >
                 <h6>MON.</h6>
-                <h6 class="emoji"><img src="src/images/sunny.png" alt="" /></h6>
+                <h6 class="emoji">
+                  <img src="src/images/sunny.png" alt="" />
+                </h6>
                 <h6>23ºC</h6>
                 <p>73ºF</p>
               </div>
@@ -146,7 +137,9 @@
                 style="max-width: 18rem"
               >
                 <h6>MON.</h6>
-                <h6 class="emoji"><img src="src/images/sunny.png" alt="" /></h6>
+                <h6 class="emoji">
+                  <img src="src/images/sunny.png" alt="" />
+                </h6>
                 <h6>23ºC</h6>
                 <p>73ºF</p>
               </div>
