@@ -66,6 +66,30 @@ function changeCity(event) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     iconElement.setAttribute("alt", description);
+
+    function tempToF(event) {
+      event.preventDefault();
+      let tempInF = document.querySelector("#temp-now");
+      tempInF.innerHTML = Math.round(temperatureNow * 1.8 + 32);
+      feelsLikeElement.innerHTML = `${Math.round(
+        response.data.main.feels_like * 1.8 + 32
+      )}ºF`;
+    }
+
+    let fahrenheit = document.querySelector("#fahrenheit");
+    fahrenheit.addEventListener("click", tempToF);
+
+    function tempToC(event) {
+      event.preventDefault();
+      let tempInC = document.querySelector("#temp-now");
+      tempInC.innerHTML = temperatureNow;
+      feelsLikeElement.innerHTML = `${Math.round(
+        response.data.main.feels_like
+      )}ºC`;
+    }
+
+    let celsius = document.querySelector("#celsius");
+    celsius.addEventListener("click", tempToC);
   }
 
   let searchInput = document.querySelector("#searchCity");
@@ -87,23 +111,23 @@ form.addEventListener("submit", changeCity);
 
 //Change Unit
 
-function tempToF(event) {
-  event.preventDefault();
-  let tempInF = document.querySelector("#temp-now");
-  tempInF.innerHTML = 74;
-}
+//function tempToF(event) {
+//  event.preventDefault();
+//  let tempInF = document.querySelector("#temp-now");
+//  tempInF.innerHTML = "#tempNow" * 1.8 + 32;
+//}
 
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", tempToF);
+//let fahrenheit = document.querySelector("#fahrenheit");
+//fahrenheit.addEventListener("click", tempToF);
 
-function tempToC(event) {
-  event.preventDefault();
-  let tempInC = document.querySelector("#temp-now");
-  tempInC.innerHTML = 23;
-}
+//function tempToC(event) {
+//  event.preventDefault();
+//  let tempInC = document.querySelector("#temp-now");
+//  tempInC.innerHTML = 23;
+//}
 
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", tempToC);
+//let celsius = document.querySelector("#celsius");
+//celsius.addEventListener("click", tempToC);
 
 //Current Location - Change Name & TºC (Real data)
 
@@ -133,6 +157,30 @@ function currentLocation(event) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     iconElement.setAttribute("alt", description);
+
+    function tempToF(event) {
+      event.preventDefault();
+      let tempInF = document.querySelector("#temp-now");
+      tempInF.innerHTML = Math.round(temperatureNow * 1.8 + 32);
+      feelsLikeElement.innerHTML = `${Math.round(
+        response.data.main.feels_like * 1.8 + 32
+      )}ºF`;
+    }
+
+    let fahrenheit = document.querySelector("#fahrenheit");
+    fahrenheit.addEventListener("click", tempToF);
+
+    function tempToC(event) {
+      event.preventDefault();
+      let tempInC = document.querySelector("#temp-now");
+      tempInC.innerHTML = temperatureNow;
+      feelsLikeElement.innerHTML = `${Math.round(
+        response.data.main.feels_like
+      )}ºC`;
+    }
+
+    let celsius = document.querySelector("#celsius");
+    celsius.addEventListener("click", tempToC);
   }
 
   function showPosition(position) {
@@ -174,12 +222,36 @@ function showTemp(response) {
   weatherDescription.innerHTML = description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  feelsLikeElement.innerHTML = `${Math.round(response.data.main.feels_like)}ºC`;
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", description);
+
+  function tempToF(event) {
+    event.preventDefault();
+    let tempInF = document.querySelector("#temp-now");
+    tempInF.innerHTML = Math.round(temperatureNow * 1.8 + 32);
+    feelsLikeElement.innerHTML = `${Math.round(
+      response.data.main.feels_like * 1.8 + 32
+    )}ºF`;
+  }
+
+  let fahrenheit = document.querySelector("#fahrenheit");
+  fahrenheit.addEventListener("click", tempToF);
+
+  function tempToC(event) {
+    event.preventDefault();
+    let tempInC = document.querySelector("#temp-now");
+    tempInC.innerHTML = temperatureNow;
+    feelsLikeElement.innerHTML = `${Math.round(
+      response.data.main.feels_like
+    )}ºC`;
+  }
+
+  let celsius = document.querySelector("#celsius");
+  celsius.addEventListener("click", tempToC);
 }
 
 function search(city) {
