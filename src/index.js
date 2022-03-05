@@ -60,7 +60,9 @@ function changeCity(event) {
     weatherDescription.innerHTML = description;
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
-    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+    feelsLikeElement.innerHTML = `${Math.round(
+      response.data.main.feels_like
+    )}ºC`;
     iconElement.setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -151,7 +153,9 @@ function currentLocation(event) {
     cityName.innerHTML = cityNow;
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
-    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+    feelsLikeElement.innerHTML = `${Math.round(
+      response.data.main.feels_like
+    )}ºC`;
     iconElement.setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
