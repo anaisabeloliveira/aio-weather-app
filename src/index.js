@@ -18,7 +18,13 @@ function formatDate(now) {
   ];
 
   let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
   let minute = now.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
   let day = days[now.getDay()];
   let month = months[now.getMonth()];
   let date = now.getDate();
@@ -38,12 +44,19 @@ function changeCity(event) {
   event.preventDefault();
 
   function showTemp(response) {
+    console.log(response.data);
     let tempNow = document.querySelector("#temp-now");
     let temperatureNow = Math.round(response.data.main.temp);
-    tempNow.innerHTML = temperatureNow;
     let weatherDescription = document.querySelector("#description");
     let description = response.data.weather[0].description;
+    let humidityElement = document.querySelector("#humidity");
+    let windElement = document.querySelector("#wind");
+    let feelsLikeElement = document.querySelector("#feels-like");
+    tempNow.innerHTML = temperatureNow;
     weatherDescription.innerHTML = description;
+    humidityElement.innerHTML = response.data.main.humidity;
+    windElement.innerHTML = Math.round(response.data.wind.speed);
+    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   }
 
   let searchInput = document.querySelector("#searchCity");
@@ -91,13 +104,19 @@ function currentLocation(event) {
   function showTemp(response) {
     let tempNow = document.querySelector("#temp-now");
     let temperatureNow = Math.round(response.data.main.temp);
-    tempNow.innerHTML = temperatureNow;
     let weatherDescription = document.querySelector("#description");
     let description = response.data.weather[0].description;
-    weatherDescription.innerHTML = description;
     let cityName = document.querySelector("#cityInput");
     let cityNow = response.data.name;
+    let humidityElement = document.querySelector("#humidity");
+    let windElement = document.querySelector("#wind");
+    let feelsLikeElement = document.querySelector("#feels-like");
+    tempNow.innerHTML = temperatureNow;
+    weatherDescription.innerHTML = description;
     cityName.innerHTML = cityNow;
+    humidityElement.innerHTML = response.data.main.humidity;
+    windElement.innerHTML = Math.round(response.data.wind.speed);
+    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   }
 
   function showPosition(position) {
