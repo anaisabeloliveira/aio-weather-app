@@ -76,10 +76,9 @@ function changeCity(event) {
       feelsLikeElement.innerHTML = `${Math.round(
         response.data.main.feels_like * 1.8 + 32
       )}ºF`;
+      celsius.classList.remove("active");
+      fahrenheit.classList.add("active");
     }
-
-    let fahrenheit = document.querySelector("#fahrenheit");
-    fahrenheit.addEventListener("click", tempToF);
 
     function tempToC(event) {
       event.preventDefault();
@@ -88,7 +87,12 @@ function changeCity(event) {
       feelsLikeElement.innerHTML = `${Math.round(
         response.data.main.feels_like
       )}ºC`;
+      celsius.classList.add("active");
+      fahrenheit.classList.remove("active");
     }
+
+    let fahrenheit = document.querySelector("#fahrenheit");
+    fahrenheit.addEventListener("click", tempToF);
 
     let celsius = document.querySelector("#celsius");
     celsius.addEventListener("click", tempToC);
@@ -110,26 +114,6 @@ function changeCity(event) {
 
 let form = document.querySelector("#search-engine");
 form.addEventListener("submit", changeCity);
-
-//Change Unit
-
-//function tempToF(event) {
-//  event.preventDefault();
-//  let tempInF = document.querySelector("#temp-now");
-//  tempInF.innerHTML = "#tempNow" * 1.8 + 32;
-//}
-
-//let fahrenheit = document.querySelector("#fahrenheit");
-//fahrenheit.addEventListener("click", tempToF);
-
-//function tempToC(event) {
-//  event.preventDefault();
-//  let tempInC = document.querySelector("#temp-now");
-//  tempInC.innerHTML = 23;
-//}
-
-//let celsius = document.querySelector("#celsius");
-//celsius.addEventListener("click", tempToC);
 
 //Current Location - Change Name & TºC (Real data)
 
@@ -169,10 +153,9 @@ function currentLocation(event) {
       feelsLikeElement.innerHTML = `${Math.round(
         response.data.main.feels_like * 1.8 + 32
       )}ºF`;
+      celsius.classList.remove("active");
+      fahrenheit.classList.add("active");
     }
-
-    let fahrenheit = document.querySelector("#fahrenheit");
-    fahrenheit.addEventListener("click", tempToF);
 
     function tempToC(event) {
       event.preventDefault();
@@ -181,8 +164,12 @@ function currentLocation(event) {
       feelsLikeElement.innerHTML = `${Math.round(
         response.data.main.feels_like
       )}ºC`;
+      celsius.classList.add("active");
+      fahrenheit.classList.remove("active");
     }
 
+    let fahrenheit = document.querySelector("#fahrenheit");
+    fahrenheit.addEventListener("click", tempToF);
     let celsius = document.querySelector("#celsius");
     celsius.addEventListener("click", tempToC);
   }
@@ -240,10 +227,9 @@ function showTemp(response) {
     feelsLikeElement.innerHTML = `${Math.round(
       response.data.main.feels_like * 1.8 + 32
     )}ºF`;
+    celsius.classList.remove("active");
+    fahrenheit.classList.add("active");
   }
-
-  let fahrenheit = document.querySelector("#fahrenheit");
-  fahrenheit.addEventListener("click", tempToF);
 
   function tempToC(event) {
     event.preventDefault();
@@ -252,7 +238,12 @@ function showTemp(response) {
     feelsLikeElement.innerHTML = `${Math.round(
       response.data.main.feels_like
     )}ºC`;
+    celsius.classList.add("active");
+    fahrenheit.classList.remove("active");
   }
+
+  let fahrenheit = document.querySelector("#fahrenheit");
+  fahrenheit.addEventListener("click", tempToF);
 
   let celsius = document.querySelector("#celsius");
   celsius.addEventListener("click", tempToC);

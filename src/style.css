@@ -92,6 +92,15 @@ ul {
   display: inline;
 }
 
+.temperature-now .active {
+  color: #fff;
+  cursor: default;
+}
+
+.temperature-now .active:hover {
+  text-decoration: none;
+}
+
 .next5days {
   margin: 0;
   text-align: center;
