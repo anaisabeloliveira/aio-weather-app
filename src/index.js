@@ -44,7 +44,6 @@ function changeCity(event) {
   event.preventDefault();
 
   function showTemp(response) {
-    console.log(response.data);
     let tempNow = document.querySelector("#temp-now");
     let temperatureNow = Math.round(response.data.main.temp);
     let weatherDescription = document.querySelector("#description");
@@ -53,7 +52,10 @@ function changeCity(event) {
     let windElement = document.querySelector("#wind");
     let feelsLikeElement = document.querySelector("#feels-like");
     let iconElement = document.querySelector("#icon");
+    let cityName = document.querySelector("#cityInput");
+    let cityNow = response.data.name;
 
+    cityName.innerHTML = cityNow;
     tempNow.innerHTML = temperatureNow;
     weatherDescription.innerHTML = description;
     humidityElement.innerHTML = response.data.main.humidity;
@@ -146,3 +148,45 @@ function currentLocation(event) {
 }
 let gps = document.querySelector("#gps");
 gps.addEventListener("click", currentLocation);
+
+//Show something on load
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input").value;
+  search(city);
+}
+
+function showTemp(response) {
+  let tempNow = document.querySelector("#temp-now");
+  let temperatureNow = Math.round(response.data.main.temp);
+  let weatherDescription = document.querySelector("#description");
+  let description = response.data.weather[0].description;
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let feelsLikeElement = document.querySelector("#feels-like");
+  let iconElement = document.querySelector("#icon");
+  let cityName = document.querySelector("#cityInput");
+  let cityNow = response.data.name;
+
+  cityName.innerHTML = cityNow;
+  tempNow.innerHTML = temperatureNow;
+  weatherDescription.innerHTML = description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", description);
+}
+
+function search(city) {
+  let apiKey = "6f1385822df624244d834e0a055792a2";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(showTemp);
+}
+
+search("New York");
