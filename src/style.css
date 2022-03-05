@@ -53,7 +53,7 @@ ul {
 }
 
 .weather-now {
-  margin: 0 40px;
+  margin: 0 10px;
   background-color: rgb(60, 55, 106);
   border: 1px inset rgb(60, 55, 106);
   border-radius: 20px;
@@ -113,7 +113,7 @@ ul {
 }
 
 .weather-5days {
-  margin: 0 40px;
+  margin: 0 10px;
   background-color: rgb(60, 55, 106);
   border: 1px inset rgb(60, 55, 106);
   border-radius: 20px;
@@ -121,7 +121,7 @@ ul {
 
 .next5days .col {
   padding: 5px;
-  margin: 20px auto -40px;
+  margin: 0 auto;
 }
 
 #cityInput {
