@@ -27,8 +27,9 @@ ul {
 }
 
 .weather-app {
+  display: block;
   padding: 20px;
-  margin: 20 auto 0;
+  margin: 20px auto 0;
   max-width: 600px;
   border: 3px inset rgb(60, 55, 106);
   border-radius: 40px;
@@ -41,11 +42,14 @@ ul {
 }
 
 .search-bar {
-  margin: 20px auto;
+  margin: 10px;
 }
 
-.btn-secondary {
-  margin: 0 10px;
+.btn-outline-secondary {
+  position: relative;
+  left: 1px;
+  top: -2px;
+  line-height: 1.2;
 }
 
 .weather-now {
@@ -89,9 +93,8 @@ ul {
 }
 
 .next5days {
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
-  color: #000;
 }
 
 .next5days-header {
@@ -119,5 +122,12 @@ ul {
 }
 
 .signature {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
   font-size: 10px;
+}
+.searchForm {
+  display: block;
+  margin: 0 auto;
 }

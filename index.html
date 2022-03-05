@@ -12,36 +12,38 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="src/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
-      <div class="weather-app card app mb-3">
-        <form class="search-bar" id="search-engine">
-          <input
-            type="text"
-            autofocus
-            autocomplete="off"
-            placeholder="Search by City..."
-            id="searchCity"
-          />
-          <input
-            type="submit"
-            title="Search"
-            class="btn btn-secondary search-btn"
-            value="🔎"
-          />
-          <input
-            type="button"
-            title="Current Location"
-            class="btn btn-secondary"
-            value="🧭"
-            id="gps"
-          />
-        </form>
+      <div class="weather-app card app mb-2">
+        <div class="row searchForm">
+          <form class="search-bar" id="search-engine">
+            <input
+              type="text"
+              autofocus
+              autocomplete="off"
+              placeholder="Search a City..."
+              id="searchCity"
+              class="col-5"
+            />
+            <input
+              type="submit"
+              title="Search"
+              class="btn btn-outline-secondary search-btn col-3"
+              value="🔎"
+            />
+            <input
+              type="button"
+              title="Current Location"
+              class="btn btn-outline-secondary col-3"
+              value="🧭"
+              id="gps"
+            />
+          </form>
+        </div>
 
         <div class="weather-now card app mb-3">
           <ul class="city-now">
@@ -78,81 +80,64 @@
           </div>
         </div>
 
-        <div class="weather-5days card app mb-3">
-          <h5 class="next5days-header">NEXT 5 DAYS</h5>
+        <div class="weather-5days card app">
+          <h5 class="next5days-header">Next 5 Days</h5>
           <div class="row next5days">
             <div class="col">
-              <div class="card mb-3 shadow-sm mb-5 rounded">
-                <h6>MON.</h6>
-                <h6 class="emoji">
-                  <img src="src/images/sunny.png" alt="" />
-                </h6>
-                <h6>23ºC</h6>
-                <p>73ºF</p>
-              </div>
+              <ul>
+                <li>MON.</li>
+
+                <li><img class="emoji" src="src/images/sunny.png" alt="" /></li>
+                <li>23ºC</li>
+                <li>73ºF</li>
+              </ul>
             </div>
             <div class="col">
-              <div
-                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
-                style="max-width: 18rem"
-              >
-                <h6>MON.</h6>
-                <h6 class="emoji">
-                  <img src="src/images/partly_cloudy.png" alt="" />
-                </h6>
-                <h6>23ºC</h6>
-                <p>73ºF</p>
-              </div>
+              <ul>
+                <li>MON.</li>
+
+                <li><img class="emoji" src="src/images/sunny.png" alt="" /></li>
+                <li>23ºC</li>
+                <li>73ºF</li>
+              </ul>
             </div>
             <div class="col">
-              <div
-                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
-                style="max-width: 18rem"
-              >
-                <h6>MON.</h6>
-                <h6 class="emoji">
-                  <img src="src/images/sunny.png" alt="" />
-                </h6>
-                <h6>23ºC</h6>
-                <p>73ºF</p>
-              </div>
+              <ul>
+                <li>MON.</li>
+
+                <li><img class="emoji" src="src/images/sunny.png" alt="" /></li>
+                <li>23ºC</li>
+                <li>73ºF</li>
+              </ul>
             </div>
             <div class="col">
-              <div
-                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
-                style="max-width: 18rem"
-              >
-                <h6>MON.</h6>
-                <h6 class="emoji">
-                  <img src="src/images/rain_light.png" alt="" />
-                </h6>
-                <h6>23ºC</h6>
-                <p>73ºF</p>
-              </div>
+              <ul>
+                <li>MON.</li>
+
+                <li><img class="emoji" src="src/images/sunny.png" alt="" /></li>
+                <li>23ºC</li>
+                <li>73ºF</li>
+              </ul>
             </div>
             <div class="col">
-              <div
-                class="card border-light mb-3 shadow-sm mb-5 bg-body rounded"
-                style="max-width: 18rem"
-              >
-                <h6>MON.</h6>
-                <h6 class="emoji">
-                  <img src="src/images/sunny.png" alt="" />
-                </h6>
-                <h6>23ºC</h6>
-                <p>73ºF</p>
-              </div>
+              <ul>
+                <li>MON.</li>
+
+                <li><img class="emoji" src="src/images/sunny.png" alt="" /></li>
+                <li>23ºC</li>
+                <li>73ºF</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-      <span class="signature"
+      <small class="signature"
         ><a
           href="https://github.com/anaisabeloliveira/aio-weather-app"
           target="_blank"
           >Open-Source Code</a
         >
-        by Ana Isabel Oliveira</span
+        by Ana Isabel Oliveira</small
       >
     </div>
 
