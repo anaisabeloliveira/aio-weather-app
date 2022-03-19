@@ -47,7 +47,7 @@ function changeCity(event) {
     let tempNow = document.querySelector("#temp-now");
     let temperatureNow = Math.round(response.data.main.temp);
     let weatherDescription = document.querySelector("#description");
-    let description = response.data.weather[0].description;
+    let description = response.data.weather[0].main;
     let humidityElement = document.querySelector("#humidity");
     let windElement = document.querySelector("#wind");
     let feelsLikeElement = document.querySelector("#feels-like");
@@ -124,7 +124,7 @@ function currentLocation(event) {
     let tempNow = document.querySelector("#temp-now");
     let temperatureNow = Math.round(response.data.main.temp);
     let weatherDescription = document.querySelector("#description");
-    let description = response.data.weather[0].description;
+    let description = response.data.weather[0].main;
     let cityName = document.querySelector("#cityInput");
     let cityNow = response.data.name;
     let humidityElement = document.querySelector("#humidity");
@@ -200,7 +200,7 @@ function showTemp(response) {
   let tempNow = document.querySelector("#temp-now");
   let temperatureNow = Math.round(response.data.main.temp);
   let weatherDescription = document.querySelector("#description");
-  let description = response.data.weather[0].description;
+  let description = response.data.weather[0].main;
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let feelsLikeElement = document.querySelector("#feels-like");
