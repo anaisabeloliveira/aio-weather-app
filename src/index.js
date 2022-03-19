@@ -47,31 +47,43 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast() {
+function dayFormat(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let days = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row next5days">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  days.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col" id="forecast-day">
               <ul>
-                <li>${day}</li>
+                <li>${dayFormat(forecastDay.dt)}</li>
 
                 <li>
                   <img
                     class="emoji"
-                    src="src/images/sunny.png"
+                    src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png"
                     alt=""
-                    width="36"
+                    width="45"
                   />
                 </li>
-                <li><strong>23ºC</strong></li>
-                <li><small>9ºC</small></li>
+                <li><strong>${Math.round(forecastDay.temp.max)}º</strong></li>
+                <li><small>${Math.round(forecastDay.temp.min)}º</small></li>
               </ul>
             </div>
     `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -110,34 +122,6 @@ function changeCity(event) {
     iconElement.setAttribute("alt", description);
 
     getForecast(response.data.coord);
-
-    function tempToF(event) {
-      event.preventDefault();
-      let tempInF = document.querySelector("#temp-now");
-      tempInF.innerHTML = Math.round(temperatureNow * 1.8 + 32);
-      feelsLikeElement.innerHTML = `${Math.round(
-        response.data.main.feels_like * 1.8 + 32
-      )}ºF`;
-      celsius.classList.remove("active");
-      fahrenheit.classList.add("active");
-    }
-
-    function tempToC(event) {
-      event.preventDefault();
-      let tempInC = document.querySelector("#temp-now");
-      tempInC.innerHTML = temperatureNow;
-      feelsLikeElement.innerHTML = `${Math.round(
-        response.data.main.feels_like
-      )}ºC`;
-      celsius.classList.add("active");
-      fahrenheit.classList.remove("active");
-    }
-
-    let fahrenheit = document.querySelector("#fahrenheit");
-    fahrenheit.addEventListener("click", tempToF);
-
-    let celsius = document.querySelector("#celsius");
-    celsius.addEventListener("click", tempToC);
   }
 
   let searchInput = document.querySelector("#searchCity");
@@ -189,33 +173,6 @@ function currentLocation(event) {
     iconElement.setAttribute("alt", description);
 
     getForecast(response.data.coord);
-
-    function tempToF(event) {
-      event.preventDefault();
-      let tempInF = document.querySelector("#temp-now");
-      tempInF.innerHTML = Math.round(temperatureNow * 1.8 + 32);
-      feelsLikeElement.innerHTML = `${Math.round(
-        response.data.main.feels_like * 1.8 + 32
-      )}ºF`;
-      celsius.classList.remove("active");
-      fahrenheit.classList.add("active");
-    }
-
-    function tempToC(event) {
-      event.preventDefault();
-      let tempInC = document.querySelector("#temp-now");
-      tempInC.innerHTML = temperatureNow;
-      feelsLikeElement.innerHTML = `${Math.round(
-        response.data.main.feels_like
-      )}ºC`;
-      celsius.classList.add("active");
-      fahrenheit.classList.remove("active");
-    }
-
-    let fahrenheit = document.querySelector("#fahrenheit");
-    fahrenheit.addEventListener("click", tempToF);
-    let celsius = document.querySelector("#celsius");
-    celsius.addEventListener("click", tempToC);
   }
 
   function showPosition(position) {
