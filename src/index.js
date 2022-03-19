@@ -78,8 +78,12 @@ function displayForecast(response) {
                     width="45"
                   />
                 </li>
-                <li><strong>${Math.round(forecastDay.temp.max)}º</strong></li>
-                <li><small>${Math.round(forecastDay.temp.min)}º</small></li>
+                <li id="temp-max-forecast"><strong>${Math.round(
+                  forecastDay.temp.max
+                )}ºC</strong></li>
+                <li id="temp-min-forecast"><small>${Math.round(
+                  forecastDay.temp.min
+                )}ºC</small></li>
               </ul>
             </div>
     `;
@@ -269,33 +273,34 @@ function showTemp(response) {
 
   getForecast(response.data.coord);
 
-  function tempToF(event) {
-    event.preventDefault();
-    let tempInF = document.querySelector("#temp-now");
-    tempInF.innerHTML = Math.round(temperatureNow * 1.8 + 32);
-    feelsLikeElement.innerHTML = `${Math.round(
-      response.data.main.feels_like * 1.8 + 32
-    )}ºF`;
-    celsius.classList.remove("active");
-    fahrenheit.classList.add("active");
-  }
+  // function tempToF(event) {
+  //   event.preventDefault();
+  //   let tempInF = document.querySelector("#temp-now");
+  //   tempInF.innerHTML = Math.round(temperatureNow * 1.8 + 32);
+  //   feelsLikeElement.innerHTML = `${Math.round(
+  //     response.data.main.feels_like * 1.8 + 32
+  //   )}ºF`;
 
-  function tempToC(event) {
-    event.preventDefault();
-    let tempInC = document.querySelector("#temp-now");
-    tempInC.innerHTML = temperatureNow;
-    feelsLikeElement.innerHTML = `${Math.round(
-      response.data.main.feels_like
-    )}ºC`;
-    celsius.classList.add("active");
-    fahrenheit.classList.remove("active");
-  }
+  //   celsius.classList.remove("active");
+  //   fahrenheit.classList.add("active");
+  // }
 
-  let fahrenheit = document.querySelector("#fahrenheit");
-  fahrenheit.addEventListener("click", tempToF);
+  // function tempToC(event) {
+  //   event.preventDefault();
+  //   let tempInC = document.querySelector("#temp-now");
+  //   tempInC.innerHTML = temperatureNow;
+  //   feelsLikeElement.innerHTML = `${Math.round(
+  //     response.data.main.feels_like
+  //   )}ºC`;
+  //   celsius.classList.add("active");
+  //   fahrenheit.classList.remove("active");
+  // }
 
-  let celsius = document.querySelector("#celsius");
-  celsius.addEventListener("click", tempToC);
+  // let fahrenheit = document.querySelector("#fahrenheit");
+  // fahrenheit.addEventListener("click", tempToF);
+
+  // let celsius = document.querySelector("#celsius");
+  // celsius.addEventListener("click", tempToC);
 }
 
 function search(city) {
