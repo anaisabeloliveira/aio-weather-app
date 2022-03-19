@@ -38,6 +38,46 @@ formatDate(new Date());
 let currentTime = document.querySelector("#date-now");
 currentTime.innerHTML = formatDate(new Date());
 
+//Forecast
+
+function getForecast(coordinates) {
+  let apiKey = "6f1385822df624244d834e0a055792a2";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row next5days">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col" id="forecast-day">
+              <ul>
+                <li>${day}</li>
+
+                <li>
+                  <img
+                    class="emoji"
+                    src="src/images/sunny.png"
+                    alt=""
+                    width="36"
+                  />
+                </li>
+                <li><strong>23ºC</strong></li>
+                <li><small>9ºC</small></li>
+              </ul>
+            </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //Change City Name HTML & Change TºC - Real Data
 
 function changeCity(event) {
@@ -68,6 +108,8 @@ function changeCity(event) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     iconElement.setAttribute("alt", description);
+
+    getForecast(response.data.coord);
 
     function tempToF(event) {
       event.preventDefault();
@@ -146,6 +188,8 @@ function currentLocation(event) {
     );
     iconElement.setAttribute("alt", description);
 
+    getForecast(response.data.coord);
+
     function tempToF(event) {
       event.preventDefault();
       let tempInF = document.querySelector("#temp-now");
@@ -188,39 +232,6 @@ function currentLocation(event) {
 let gps = document.querySelector("#gps");
 gps.addEventListener("click", currentLocation);
 
-//Forecast
-
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row next5days">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-    <div class="col" id="forecast-day">
-              <ul>
-                <li>${day}</li>
-
-                <li>
-                  <img
-                    class="emoji"
-                    src="src/images/sunny.png"
-                    alt=""
-                    width="36"
-                  />
-                </li>
-                <li><strong>23ºC</strong></li>
-                <li><small>9ºC</small></li>
-              </ul>
-            </div>
-    `;
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-
 //Show something on load
 
 function handleSubmit(event) {
@@ -252,6 +263,8 @@ function showTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", description);
+
+  getForecast(response.data.coord);
 
   function tempToF(event) {
     event.preventDefault();
@@ -290,4 +303,3 @@ function search(city) {
 }
 
 search("New York");
-displayForecast();
