@@ -100,7 +100,6 @@ function changeCity(event) {
   event.preventDefault();
 
   function showTemp(response) {
-    console.log(response);
     let tempNow = document.querySelector("#temp-now");
     let temperatureNow = Math.round(response.data.main.temp);
     let weatherDescription = document.querySelector("#description");
@@ -127,46 +126,6 @@ function changeCity(event) {
     iconElement.setAttribute("alt", description);
 
     getForecast(response.data.coord);
-
-    function formatDate(now) {
-      let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-      let months = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Ago",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-
-      let hour = now.getHours();
-      if (hour < 10) {
-        hour = `0${hour}`;
-      }
-      let minute = now.getMinutes();
-      if (minute < 10) {
-        minute = `0${minute}`;
-      }
-      let day = days[now.getDay()];
-      let month = months[now.getMonth()];
-      let date = now.getDate();
-
-      let currentDate = `${day}, ${month} ${date}, ${
-        hour + response.data.timezone / 3600
-      }:${minute}`;
-      return currentDate;
-    }
-
-    formatDate(new Date());
-
-    let currentTime = document.querySelector("#date-now");
-    currentTime.innerHTML = formatDate(new Date());
   }
 
   let searchInput = document.querySelector("#searchCity");
