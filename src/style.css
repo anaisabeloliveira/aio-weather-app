@@ -1,3 +1,7 @@
+body {
+  background-color: rgba(7, 7, 7, 0.85);
+}
+
 h4 {
   font-size: 18px;
 }
@@ -135,6 +139,7 @@ ul {
   margin: 0 auto;
   text-align: center;
   font-size: 10px;
+  color: #fff;
 }
 .searchForm {
   display: block;
