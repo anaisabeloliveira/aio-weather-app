@@ -188,6 +188,39 @@ function currentLocation(event) {
 let gps = document.querySelector("#gps");
 gps.addEventListener("click", currentLocation);
 
+//Forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row next5days">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col" id="forecast-day">
+              <ul>
+                <li>${day}</li>
+
+                <li>
+                  <img
+                    class="emoji"
+                    src="src/images/sunny.png"
+                    alt=""
+                    width="36"
+                  />
+                </li>
+                <li><strong>23ºC</strong></li>
+                <li><small>9ºC</small></li>
+              </ul>
+            </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //Show something on load
 
 function handleSubmit(event) {
@@ -257,3 +290,4 @@ function search(city) {
 }
 
 search("New York");
+displayForecast();
